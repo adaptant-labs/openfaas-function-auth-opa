@@ -1,0 +1,12 @@
+provider:
+  name: faas
+  gateway: http://127.0.0.1:8080
+  network: func_functions
+
+functions:
+  opa-auth:
+    lang: golang-http-gomod
+    handler: ./opa-auth
+    image: adaptant/openfaas-function-auth-opa:0.1
+    environment:
+      OPA_URL: "http://opa:8181"
